@@ -1,0 +1,96 @@
+#header
+ =link_to (image_tag 'header2.png') , root_url
+#section
+ .nav
+  %ul
+   %li=link_to "Home",user_path(@user),:class=>"active"
+   %li=link_to "What is Nannyshare?"
+   %li=link_to "About NannySharePartners.com"
+   %li=link_to "FAQs"
+   %li=link_to "Blog",user_path(@user)
+   %li=link_to "Logout", :logout
+ .clear
+ .mid-for-profile-page01
+  .mid-left-contact-Images
+   .profile-image
+    - if @user.photo.exists? then
+     = image_tag @user.photo.url(:small)
+    -else
+     =image_tag 'leftimageformyprofilepage01.png'
+  .mid-right-sub-nav
+   .get-started-css
+    %ul{:class=>'nav2'}
+     %li{:class=>'usename1'}
+      .span{:class=>'nameofusercss01'}
+       ="Welcome:#{@user.name}"
+
+     %li
+      =link_to "Matches"
+
+     %li
+      =link_to "Profile"
+     %li
+      =link_to "Mailbox"
+    .mid-right11
+     .mid-right-body11
+      .yourprofileansers-css-heading
+       .css-your-profile-ansers-text
+        ="Your Profile Answers"
+        
+        %br
+      .css-table-data-text001
+       %div{:class=>"field2"}
+        %p
+         =label_tag "Children"
+         %span{:class=>"no"}=@user.number_of_children
+         %span{:class=>"edit"}=link_to (image_tag 'pencilimage002.png'), edit_user_path(@user),:id=>"link_1"
+     
+       %div{:class=>"field2"}
+        %p
+         =label_tag "Address"
+         %span{:class=>"no"}= @user.address
+         %span{:class=>"edit"}=link_to (image_tag 'pencilimage002.png'), edit_user_path(@user),:id=>"link_2"
+       
+       %div{:class=>"field2"}
+        %p
+         =label_tag "Preferred Nanny Share Date"
+         %span{:class=>"no"}= @user.begin_date_for_share
+         %span{:class=>"edit"}=link_to (image_tag 'pencilimage002.png'), edit_user_path(@user),:id=>"link_3"
+
+       %div{:class=>"field2"}
+        %p
+         =label_tag"Budget"
+         %span{:class=>"no"}= @user.max_monthly_budget
+         %span{:class=>"edit"}=link_to (image_tag 'pencilimage002.png'), edit_user_path(@user),:id=>"link_4"
+
+       %div{:class=>"field2"}
+        %p
+         =label_tag "Willing To host?"
+         %span{:class=>"no"}= @user.host
+         %span{:class=>"edit"}=link_to (image_tag 'pencilimage002.png'), edit_user_path(@user),:id=>"link_5"
+
+       %div{:class=>"field2"}
+        %p
+         =label_tag"Religion"
+         %span{:class=>"no"}= @user.religion
+         %span{:class=>"edit"}=link_to (image_tag 'pencilimage002.png'), edit_user_path(@user),:id=>"link_6"
+
+       %div{:class=>"field2"}
+        %p
+         =label_tag "View on Television"
+         %span{:class=>"no"}= @user.television_viewing
+         %span{:class=>"edit"}=link_to (image_tag 'pencilimage002.png'), edit_user_path(@user),:id=>"link_7"
+
+       %div{:class=>"field2"}
+        %p
+         =label_tag "View on Junk Food"
+         %span{:class=>"no"}= @user.junk_food
+         %span{:class=>"edit"}=link_to (image_tag 'pencilimage002.png'), edit_user_path(@user),:id=>"link_8"
+
+       %br
+       %br
+       = link_to 'Edit Profile ', edit_user_path(@user),:id=>"link_9"
+       = "|"
+       = link_to 'Back', root_url
+
+
